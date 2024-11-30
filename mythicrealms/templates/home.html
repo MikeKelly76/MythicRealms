@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Home Page
+{% endblock%}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <h1>Welcome back {{user.username}}!</h1>
+        <h2><a href="{% url 'characters:list' %}">Characters</a></h2>
+        <h2><a href="{% url 'characters:new-character' %}">Create a New Character</a></h2>
+        <h2><a href="{% url 'chat:lobby' %}">Enter Chat</a></h2>
+    {% else %}
+        <h1>Welcome to Mythic Realms!</h1>
+        <p style="max-width: 640px; word-wrap:break-word">Mythic Realms is a virtual tabletop platform designed to elevate your tabletop role-playing experience. Whether you're a Game Master or a player, Mythic Realms provides intuitive tools for creating immersive worlds, dynamic maps, and exciting campaigns. With rich customization options, real-time collaboration, and seamless storytelling features, Mythic Realms makes it easy to bring your imagination to life and embark on epic adventures with friends—no matter where they are. Dive into a realm of endless possibilities and create your own mythic stories.</p>
+        <h2><a href="{% url 'users:login' %}">User Login</a></h2>
+        <h2><a href="{% url 'users:register' %}">Register</a></h2>
+    {% endif %}
+{% endblock %}

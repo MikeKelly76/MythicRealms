@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            Mythic Realms
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav>
+        <h1>MYTHIC REALMS</h1>
+        <a href="/">Home</a> |
+        {% if user.is_authenticated %}
+        <a href="{% url 'characters:list' %}">Characters</a> |
+        <a href="{% url 'characters:new-character' %}">Create a New Character</a> |
+        <a href="{% url 'chat:lobby' %}">Enter Chat</a> |
+        <form class="logout" action="{% url 'users:logout' %}" method="post">
+            {% csrf_token %}
+            <button class="logout-button">Logout</button>
+        </form>
+        {% else %}
+        <a href="{% url 'users:login' %}">User Login</a> |
+        <a href="{% url 'users:register' %}">Register</a> 
+        {% endif %}
+
+    </nav>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

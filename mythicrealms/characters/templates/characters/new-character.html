@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    New Character
+{% endblock%}
+
+{% block content %}
+    <section>
+        <h1>New Character</h1>
+        <form class="validation-form" action="{% url 'characters:new-character' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <button class="form-submit">Create Character</button>
+        </form>
+    </section>
+{% endblock %}

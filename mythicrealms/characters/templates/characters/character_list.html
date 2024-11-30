@@ -1,0 +1,17 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Profile
+{% endblock%}
+
+{% block content %}
+    <section>
+    <h1>Welcome back {{ user.username }}!</h1> 
+    {% for character in characters %}
+        <article>
+            <h2> <a href="{% url 'characters:character' slug=character.slug %}">{{ character.name }}</a> </h2>
+            <p>{{ character.ancestry }} - {{ character.ch_class }}</p>
+        </article>
+    {% endfor %}
+    </section>
+{% endblock %}

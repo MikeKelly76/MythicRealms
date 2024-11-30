@@ -1,0 +1,114 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    {{character.name}}
+{% endblock%}
+
+{% block content %}
+    <section>
+        <h1>{{character.name}}</h1> 
+        <img 
+            class="portrait"
+            src="{{ character.ch_image.url }}"
+            alt="No image to display"
+        />
+        <h2>Ancestry: {{ character.ancestry }}</h2>
+        {% if character.ancestry == "Human"%}
+            <p style="max-width: 640px; word-wrap:break-word">In the reckonings of most worlds, humans are the youngest of the common races, late to arrive on the world scene and short-lived in comparison to dwarves, elves, and dragons. Perhaps it is because of their shorter lives that they strive to achieve as much as they can in the years they are given. Or maybe they feel they have something to prove to the elder races, and that's why they build their mighty empires on the foundation of conquest and trade. Whatever drives them, humans are the innovators, the achievers, and the pioneers of the worlds.</p>
+            <h3>Resourceful</h3>
+            <p style="max-width: 640px; word-wrap:break-word">You gain Heroic Inspiration whenever you finish a Long Rest.</p>
+            <h3>Skillful</h3>
+            <p style="max-width: 640px; word-wrap:break-word">You gain proficiency in one skill of your choice.</p>
+            <h3>Versatile</h3>
+            <p style="max-width: 640px; word-wrap:break-word">You gain an Origin feat of your choice.</p>
+        {% elif character.ancestry == "Aarakocra" %}
+            <p style="max-width: 640px; word-wrap:break-word">Sequestered in high mountains atop tall trees, the aarakocra evoke fear and wonder. Many of these birdfolk hail from the boundless vistas of the Elemental Plane of Air. They are immigrants, refugees, scouts, and explorers, their outposts functioning as footholds in a world both strange and alien.</p>
+            <h3>Flight</h3>
+            <p style="max-width: 640px; word-wrap:break-word">Because of your wings, you have a flying speed equal to your walking speed. You can’t use this flying speed if you’re wearing medium or heavy armor.</p>
+            <h3>Talons</h3>
+            <p style="max-width: 640px; word-wrap:break-word">You have talons that you can use to make unarmed strikes. When you hit with them, the strike deals 1d6 + your Strength modifier slashing damage, instead of the bludgeoning damage normal for an unarmed strike.
+            </p>
+            <h3>Wind Caller</h3>
+            <p style="max-width: 640px; word-wrap:break-word">Starting at 3rd level, you can cast the Gust of Wind spell with this trait, without requiring a material component. Once you cast the spell with this trait, you can’t do so again until you finish a long rest. You can also cast the spell using any spell slots you have of 2nd level or higher. Intelligence, Wisdom, or Charisma is your spellcasting ability for it when you cast Gust of Wind with this trait (choose when you select this race).</p>
+        {% else %}
+            <h3>Coming Soon!</h3>
+        {% endif %}
+        <h2>Background: {{ character.background }}</h2>
+        {% if character.background == "Criminal"%}
+            <p style="max-width: 640px; word-wrap:break-word">You eked out a living in dark alleyways, cutting purses or burgling shops. Perhaps you were part of a small gang of like-minded wrongdoers who looked out for each other. Or maybe you were a lone wolf, fending for yourself against the local thieves' guild and more fearsome lawbreakers.</p>
+            <h3>Skill Proficiencies</h3>
+            <p>Sleight of Hand, Stealth</p>
+            <h3>Tool Proficiency</h3>
+            <p>Thieves' Tools</p>
+            <h3>Feat: Alert</h3>
+            <p style="max-width: 640px; word-wrap:break-word">You gain the following benefits.</p>
+            <p style="max-width: 640px; word-wrap:break-word"><b>Initiative Proficiency.</b> When you roll Initiative, you can add your Proficiency Bonus to the roll.</p>
+            <p style="max-width: 640px; word-wrap:break-word"><b>Initiative Swap.</b> Immediately after you roll Initiative, you can swap your Initiative with the Initiative of one willing ally in the same combat. You can't make this swap if you or the ally has the Incapacitated condition.</p>
+        {% elif character.background == "Farmer" %}
+            <p style="max-width: 640px; word-wrap:break-word">You grew up close to the land. Years tending animals and cultivating the earth rewarded you with patience and good health. You have a keen appreciation for nature's bounty alongside a healthy respect for nature's wrath.</p>
+            <h3>Skill Proficiencies</h3>
+            <p>Animal Handling, Nature</p>
+            <h3>Tool Proficiency</h3>
+            <p>Carpenter's Tools</p>
+            <h3>Feat: Tough</h3>
+            <p style="max-width: 640px; word-wrap:break-word">Your Hit Point maximum increases by an amount equal to twice your character level when you gain this feat. Whenever you gain a character level thereafter, your Hit Point maximum increases by an additional 2 Hit Points.</p>
+        {% else %}
+            <h3>Coming Soon!</h3>
+        {% endif %}
+        <h2>Class: {{ character.ch_class }}</h2>
+        {% if character.ch_class == "Fighter"%}
+            <p style="max-width: 640px; word-wrap:break-word">Fighters rule many battlefields. Questing knights, royal champions, elite soldiers, and hardened mercenaries—as Fighters, they all share an unparalleled prowess with weapons and armor. And they are well acquainted with death, both meting it out and defying it.</p>
+            <p style="max-width: 640px; word-wrap:break-word">Fighters master various weapon techniques, and a well-equipped Fighter always has the right tool at hand for any combat situation. Likewise, a Fighter is adept with every form of armor. Beyond that basic degree of familiarity, each Fighter specializes in certain styles of combat. Some concentrate on archery, some on fighting with two weapons at once, and some on augmenting their martial skills with magic. This combination of broad ability and extensive specialization makes Fighters superior combatants.</p>
+            <h3>Skill Proficiencies</h3>
+            <p>Athletics, Perception</p>
+            <h3>Level 1: Fighting Style</h3>
+            <p style="max-width: 640px; word-wrap:break-word">You have honed your martial prowess and gain a Fighting Style feat of your choice. Defense is recommended.</p>
+            <p style="max-width: 640px; word-wrap:break-word">Whenever you gain a Fighter level, you can replace the feat you chose with a different Fighting Style feat.</p>
+            <h3>Level 1: Second Wind</h3>
+            <p style="max-width: 640px; word-wrap:break-word">You have a limited well of physical and mental stamina that you can draw on. As a Bonus Action, you can use it to regain Hit Points equal to 1d10 plus your Fighter level.</p>
+            <p style="max-width: 640px; word-wrap:break-word">You can use this feature twice. You regain one expended use when you finish a Short Rest, and you regain all expended uses when you finish a Long Rest.</p>
+            <p style="max-width: 640px; word-wrap:break-word">When you reach certain Fighter levels, you gain more uses of this feature, as shown in the Second Wind column of the Fighter Features table.</p>
+            <h3>Level 1: Weapon Mastery</h3>
+            <p style="max-width: 640px; word-wrap:break-word">Your training with weapons allows you to use the mastery properties of three kinds of Simple or Martial weapons of your choice. Whenever you finish a Long Rest, you can practice weapon drills and change one of those weapon choices.</p>
+            <p style="max-width: 640px; word-wrap:break-word">When you reach certain Fighter levels, you gain the ability to use the mastery properties of more kinds of weapons, as shown in the Weapon Mastery column of the Fighter Features table.</p>      
+        {% elif character.ch_class == "Rogue" %}
+            <p style="max-width: 640px; word-wrap:break-word">Fighters rule many battlefields. Questing knights, royal champions, elite soldiers, and hardened mercenaries—as Fighters, they all share an unparalleled prowess with weapons and armor. And they are well acquainted with death, both meting it out and defying it.</p>
+            <p style="max-width: 640px; word-wrap:break-word">Fighters master various weapon techniques, and a well-equipped Fighter always has the right tool at hand for any combat situation. Likewise, a Fighter is adept with every form of armor. Beyond that basic degree of familiarity, each Fighter specializes in certain styles of combat. Some concentrate on archery, some on fighting with two weapons at once, and some on augmenting their martial skills with magic. This combination of broad ability and extensive specialization makes Fighters superior combatants.</p>
+            <h3>Skill Proficiencies</h3>
+            <p>Acrobatics, Deception, Insight, Intimidation</p>
+            <h3>Level 1: Expertise</h3>
+            <p style="max-width: 640px; word-wrap:break-word">You gain Expertise in two of your skill proficiencies of your choice. Sleight of Hand and Stealth are recommended if you have proficiency in them.</p>
+            <p style="max-width: 640px; word-wrap:break-word">At Rogue level 6, you gain Expertise in two more of your skill proficiencies of your choice.</p>
+            <h3>Level 1: Thieves' Cant</h3>
+            <p style="max-width: 640px; word-wrap:break-word">You picked up various languages in the communities where you plied your roguish talents. You know Thieves' Cant and one other language of your choice, which you choose from the language tables in chapter 2.</p>
+            <h3>Level 1: Sneak Attack</h3>
+            <p style="max-width: 640px; word-wrap:break-word">You know how to strike subtly and exploit a foe's distraction. Once per turn, you can deal an extra 1d6 damage to one creature you hit with an attack roll if you have Advantage on the roll and the attack uses a Finesse or a Ranged weapon. The extra damage's type is the same as the weapon's type.</p>
+            <p style="max-width: 640px; word-wrap:break-word">You don't need Advantage on the attack roll if at least one of your allies is within 5 feet of the target, the ally doesn't have the Incapacitated condition, and you don't have Disadvantage on the attack roll.</p>            
+            <p style="max-width: 640px; word-wrap:break-word">The extra damage increases as you gain Rogue levels, as shown in the Sneak Attack column of the Rogue Features table.</p>
+            <h3>Level 1: Weapon Mastery</h3>
+            <p style="max-width: 640px; word-wrap:break-word">Your training with weapons allows you to use the mastery properties of two kinds of weapons of your choice with which you have proficiency, such as Daggers and Shortbows.</p>
+            <p style="max-width: 640px; word-wrap:break-word">Whenever you finish a Long Rest, you can change the kinds of weapons you chose. For example, you could switch to using the mastery properties of Scimitars and Shortswords.</p>            
+        {% else %}
+            <h3>Coming Soon!</h3>
+        {% endif %}
+        <h2>Skills</h2>
+        <p> Acrobatics: {{ modifiers.0}} </p>
+        <p> Animal Handling: {{ modifiers.1}} </p>
+        <p> Arcana : {{ modifiers.2}} </p>
+        <p> Athletics: {{ modifiers.3}} </p>
+        <p> Deception: {{ modifiers.4}} </p>
+        <p> History : {{ modifiers.5}} </p>
+        <p> Insight: {{ modifiers.6}} </p>
+        <p> Intimidation: {{ modifiers.7}} </p>
+        <p> Investigation: {{ modifiers.8}} </p>
+        <p> Medicine: {{ modifiers.9}} </p>
+        <p> Nature: {{ modifiers.10}} </p>
+        <p> Perception: {{ modifiers.11}} </p>
+        <p> Performance: {{ modifiers.12}} </p>
+        <p> Persuasion: {{ modifiers.13}} </p>
+        <p> Religion: {{ modifiers.14}} </p>
+        <p> Sleight of Hand: {{ modifiers.15}} </p>
+        <p> Stealth: {{ modifiers.16}} </p>
+        <p> Survival: {{ modifiers.17}} </p>
+    </section>
+{% endblock %}
